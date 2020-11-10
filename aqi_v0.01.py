@@ -3,21 +3,11 @@ import json
 from colorama import init
 from colorama import Fore, Back, Style
 
-def world_aqi():
+def world_aqi(url):
 
-    while True:
+    #while True:
         try:
             init(autoreset=True)
-
-            url1 = input('\n' "Please enter the city name: ")
-            url2 = "https://api.waqi.info/feed/"
-            url3 = "/?token=83aa82912f08eb427756e3bb9993c56d28f65961"
-            url = url2 + url1 + url3
-
-            #location_ip = "https://api.waqi.info/feed/here/?token=83aa82912f08eb427756e3bb9993c56d28f65961"
-            #url = "https://api.waqi.info/feed/randwick/?token=83aa82912f08eb427756e3bb9993c56d28f65961"
-            #geo = "https://api.waqi.info/feed/geo:-33.86;151.20/?token=83aa82912f08eb427756e3bb9993c56d28f65961"
-            # lat long example - https://api.waqi.info/feed/geo:10.3;20.7/?token=demo
 
             resp = requests.get(url)
             data = resp.json()
@@ -49,11 +39,22 @@ def world_aqi():
             print(Fore.YELLOW +' 151 - 200, Unhealthy')
             print(Fore.LIGHTRED_EX +' 201 - 300, Very Unhealthy')
             print(Fore.RED +' 300 and up, Hazardous')
-        except (KeyboardInterrupt, SystemExit):
-            print("\n\nExiting program.......\n")
-            break
-            #raise - the key word "raise" means to print out the traceback error for troubleshooting purposes.
+
         except:
             print("Sorry, the city was not found.")
 
-world_aqi()
+while True:
+    try:
+        url1 = input('\n' "Please enter the city name: ")
+        url2 = "https://api.waqi.info/feed/"
+        url3 = "/?token=83aa82912f08eb427756e3bb9993c56d28f65961"
+        #location_ip = "https://api.waqi.info/feed/here/?token=83aa82912f08eb427756e3bb9993c56d28f65961"
+        #url = "https://api.waqi.info/feed/randwick/?token=83aa82912f08eb427756e3bb9993c56d28f65961"
+        #geo = "https://api.waqi.info/feed/geo:-33.86;151.20/?token=83aa82912f08eb427756e3bb9993c56d28f65961"
+        # lat long example - https://api.waqi.info/feed/geo:10.3;20.7/?token=demo
+        url = url2 + url1 + url3
+        world_aqi(url)
+    except (KeyboardInterrupt, SystemExit):
+        print("\n\nExiting program.......\n")
+        break
+        #raise - the key word "raise" means to print out the traceback error for troubleshooting purposes.
