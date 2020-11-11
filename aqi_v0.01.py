@@ -28,10 +28,10 @@ def world_aqi(url):
             else:
                 category = (Fore.RED +'Hazardous')
 
-            print('\n\n','===========================')
-            print('  Air Quality Index Finder')
-            print('============================')
-            print('\n', f'The closest weather station to your location is {city_name} which reports the current AQI as: {city_aqi} which falls into the category of {category}.')
+            print('\n\n','==========================')
+            print('  Air Quality Index App')
+            print(' ==========================')
+            print('\n', f'The AQI for {city_name} is {city_aqi} which is considered {category}.')
             print('\n'' How to interpret the AQI score?')
             print(Fore.LIGHTGREEN_EX +' 0 - 50, Good')
             print(Fore.GREEN +' 51 - 100, Moderate')
@@ -45,7 +45,7 @@ def world_aqi(url):
 
 while True:
     try:
-        url1 = input('\n' "Please enter the city name: ")
+        url1 = input('\n' "Enter a city name: ")
         url2 = "https://api.waqi.info/feed/"
         url3 = "/?token=83aa82912f08eb427756e3bb9993c56d28f65961"
         #location_ip = "https://api.waqi.info/feed/here/?token=83aa82912f08eb427756e3bb9993c56d28f65961"
