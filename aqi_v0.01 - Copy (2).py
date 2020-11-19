@@ -29,7 +29,7 @@ def world_aqi(url):
             else:
                 category = (Fore.RED +'Hazardous')
 
-
+            
 
             print('\n\n','==========================')
             print('  Air Quality Index App')
@@ -45,7 +45,6 @@ def world_aqi(url):
 
         except:
             print("Sorry, the city was not found.")
-
 
 while True:
     try:
