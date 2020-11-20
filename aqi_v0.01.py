@@ -2,6 +2,19 @@ import requests
 import json
 from colorama import init
 from colorama import Fore, Back, Style
+from os import system, name
+from time import sleep
+
+def clear():
+
+    # for windows
+    if name == 'nt':
+        _ = system('cls')
+
+    # for mac and linux(here, os.name is 'posix')
+    else:
+        _ = system('clear')
+
 
 def world_aqi(url):
 
@@ -65,6 +78,8 @@ while True:
         # lat long example - https://api.waqi.info/feed/geo:10.3;20.7/?token=demo
         url = url2 + url1 + url3
         world_aqi(url)
+        sleep(3)
+        clear()
     except (KeyboardInterrupt, SystemExit):
         print("\n\nExiting program.......\n")
         break
