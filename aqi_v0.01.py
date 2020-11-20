@@ -18,23 +18,30 @@ def world_aqi(url):
 
             if city_aqi <= 50:
                 category = (Fore.LIGHTGREEN_EX +'Good')
+                warning = (Fore.GREEN +" Enjoy your day!")
             elif city_aqi <= 100:
                 category = (Fore.GREEN +'Moderate')
+                warning = (Fore.GREEN +" Enjoy your day!")
             elif city_aqi <= 150:
                 category = (Fore.LIGHTYELLOW_EX +'Unhealthy for sensitive groups')
+                warning = (Fore.LIGHTYELLOW_EX +" You should consider staying indoors today")
             elif city_aqi <= 200:
-                category = (Fore.YELLOW +'Unhealthy')
+                category = (Fore.YELLOW +' Unhealthy')
+                warning = (Fore.YELLOW + " Please avoid this location today")
             elif city_aqi <= 300:
                 category = (Fore.LIGHTRED_EX +'Very Unhealthy')
+                warning = (Fore.LIGHTRED_EX + " Stay away from this location today")
             else:
                 category = (Fore.RED +'Hazardous')
+                warning = (Fore.LIGHTRED_EX + " The AQI is dangerous here!")
 
 
 
             print('\n\n','==========================')
             print('  Air Quality Index App')
             print(' ==========================')
-            print('\n', f'The AQI for {city_name} is {city_aqi} which is considered {category}.')
+            print('\n', f'The closest sensor is {city_name} and the AQI for {url1} is {city_aqi} which is considered {category}.')
+            print(warning)
             print('\n'' How to interpret the AQI score?')
             print(Fore.LIGHTGREEN_EX +' 0 - 50, Good')
             print(Fore.GREEN +' 51 - 100, Moderate')
