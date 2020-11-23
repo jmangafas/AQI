@@ -1,4 +1,4 @@
-!#NTTCiscoHackfest2020
+#NTTCiscoHackfest2020
 
 import requests
 import json
