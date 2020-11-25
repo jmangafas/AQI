@@ -1,5 +1,6 @@
 #NTTCiscoHackfest2020
 
+#import libraries
 import requests
 import json
 from colorama import init
@@ -7,6 +8,7 @@ from colorama import Fore, Back, Style
 from os import system, name
 from time import sleep
 
+#Clears the screen once the AQI is returned.
 def clear():
 
     # for windows
@@ -17,6 +19,7 @@ def clear():
     else:
         _ = system('clear')
 
+#format the json returned from the AQI API, and decide what category it will fall into.
 
 def world_aqi(url):
 
@@ -50,7 +53,7 @@ def world_aqi(url):
                 category = (Fore.RED +'Hazardous')
                 warning = (Fore.LIGHTRED_EX + " The AQI is dangerous here!")
 
-
+#Print the AQI output in a user friendly format
 
             print('\n\n','==========================')
             print('  Air Quality Index App')
@@ -68,19 +71,26 @@ def world_aqi(url):
         except:
             print("Sorry, the city was not found.")
 
-
+#Accept the city name from the user, which is used to receive a result from the api.
 while True:
     try:
+        print(' ==============')
+        print('\n'' World AQI APP ')
         url1 = input('\n' "Enter a city name: ")
         url2 = "https://api.waqi.info/feed/"
         url3 = "/?token=83aa82912f08eb427756e3bb9993c56d28f65961"
+
+        #alternate methods to gather the city details
         #location_ip = "https://api.waqi.info/feed/here/?token=83aa82912f08eb427756e3bb9993c56d28f65961"
         #url = "https://api.waqi.info/feed/randwick/?token=83aa82912f08eb427756e3bb9993c56d28f65961"
         #geo = "https://api.waqi.info/feed/geo:-33.86;151.20/?token=83aa82912f08eb427756e3bb9993c56d28f65961"
         # lat long example - https://api.waqi.info/feed/geo:10.3;20.7/?token=demo
+
         url = url2 + url1 + url3
+
+        #run the functions in order specified
         world_aqi(url)
-        sleep(3)
+        sleep(12)
         clear()
     except (KeyboardInterrupt, SystemExit):
         print("\n\nExiting program.......\n")
